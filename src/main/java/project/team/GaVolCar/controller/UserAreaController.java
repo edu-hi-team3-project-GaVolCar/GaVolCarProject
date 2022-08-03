@@ -28,7 +28,7 @@ public class UserAreaController {
 	private AreaService areaService;
 	
 
-	@GetMapping("/arealist_user")
+	@GetMapping("arealist_user")
 	public String list(Model model) {
 		
 		log.info("list()...");
