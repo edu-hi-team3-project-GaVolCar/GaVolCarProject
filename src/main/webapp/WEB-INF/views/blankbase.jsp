@@ -70,7 +70,15 @@
 <title>event list</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<script type="text/javascript">
+		$(document).ready(function() {
+			var memberName = "<sec:authentication property='principal.username'/>";
+			console.log(memberName);
+			$("#go").html("<a class='row' href='/pevent_view_user?user_id=memberName' style='text-decoration: none; border: 0.5px solid black;'><div class='col-8'><h1 style='line-height: 10em; color: orange;'>(이벤트)여름에는 놀러가자! 포인트 대 축제</h1></div></a>");
+			$("#go2").html("<a class='row' href='/cevent_view_user?user_id=memberName' style='text-decoration: none; border: 0.5px solid black;'><div class='col-8'><h1 style='line-height: 10em; color: orange;'>(이벤트)후기쓰고 쿠폰받자!</h1></div></a>");
+			
+		});
+	</script>
 
 
 <!-- 
