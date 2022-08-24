@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>trans infomation edit</title>
+<title>car information list</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/prettyPhoto.css" rel="stylesheet">
@@ -23,7 +23,7 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="shortcut icon" href="../images/ico/favicon.ico">
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
 	href="../images/ico/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114"
@@ -49,6 +49,20 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+<script type="text/javascript">
+function deletePopup(){window.open("../admindeletePopup", "delete", "width=500, height=300, left=100, top=50");}
+function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, height=400, left=100, top=50");}
+
+
+</script>
+
+
 <style type="text/css">
 #warp {
 	text-align: center;
@@ -65,6 +79,10 @@
 	color: gray;
 	line-height: 3em;
 	font-size: 1.5em;
+}
+#main{
+	padding: 3em;
+	font-size: 24px;
 }
 #pagetitle{
 	background: url(../기어.png);
@@ -91,8 +109,6 @@
 			<div id="headlogin" class="col-2"></div>
 		</div>
 	</div>
-
-
 
 	<div class="container col-12">
 		<div class="row">
@@ -122,84 +138,58 @@
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
-			<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">통계 관리</div>
+				<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">예약관리</div>
+
+
+				<div id="main">
+					
 				
-				<div id="pieChart_div"></div>
-				<div id="chart_div"></div>
+					<table width="1200" border="5px solid black"
+						style="margin: 0 auto; text-align: center; background-color: rgba(255, 255, 255, 0.603); opacity: 0.8;">
+						<tr style="background-color: rgba(155, 155, 155, 0.603);">
+							<td>예약번호</td>
+							<td>유저 아이디</td>
+							<td>랜트 시작일</td>
+							<td>랜트 종료일</td>
+							<td>예약비용</td>
+							<td>하이패스 여부</td>
+							<td>카시트 여부</td>
+							<td>차량번호</td>
+							<td>변경</td>
+							<td>예약취소</td>
 
+						</tr>
 
-				<table border="1" class="col-10"
-					style="font-size: 2em; margin: 5em;">
-					<tr>
-						<td width="50">번호</td>
-						<td>이익</td>
-						<td>차종</td>
-						<td>대여일수</td>
-						<td>수정</td>
-						<td>데이터 삭제</td>
-					</tr>
+						<c:forEach var="rents" items="${list}">
 
-					<!-- 		for (DeptVO dept : deptMapper.getDeptEmpList()) {
-			
-			log.info(dept.getLoc() + dept.getDeptno());
-			
-			for (EmpVO vo : dept.getEmpList()) {
-				System.out.println(vo);
-			}
-		} -->
-
-
-					<c:forEach var="list" items="${transList}">
-						<form id="updateForm" action="/transUpdate" method="post">
-							<input type="hidden" name="trans_no" value="${list.trans_no}">
 							<tr>
-								<td>${list.trans_no}</td>
-								<td><input name="trans_sales" type="number"
-									value="${list.trans_sales}"></td>
-
-								<td><input name="trans_type" type="text"
-									value="${list.trans_type}"></td>
-								<td><input name="trans_date" type="text"
-									value="${list.trans_date}"></td>
-
-								<td><input type="submit" value="수정"></td>
-								<td><a href="/transDelete?trans_no=${list.trans_no}">삭제</a></td>
-
+								<td>${rents.rez_no}</td>
+								<td>${rents.user_id}</td>
+								<td>${rents.rent_start_date}</td>
+								<td>${rents.rent_end_date}</td>
+								<td>${rents.final_cost}</td>
+								<td>${rents.hipass2}</td>
+								<td>${rents.baby_car_seat2}</td>
+								<td>${rents.car_no}</td>
+								<td><input id="changer" type="button" value="변경"
+									onclick="modifyPopup();"></td>
+								<td><input id="deleter" type="button" value="취소"
+									onclick="deletePopup();"></td>
 
 							</tr>
-						</form>
-					</c:forEach>
-					<form id="writeForm" action="/transWrite" method="post">
-						<tr>
-							<td>추가</td>
-							<td><input name="trans_sales" type="number" value="이익"
-								onfocus="this.value=''"></td>
-							<td><input name="trans_type" type="text" value="차종"
-								onfocus="this.value=''"></td>
-							<td><input name="trans_date" type="text" value="대여일수"
-								onfocus="this.value=''"></td>
-							<td colspan="2"><input type="submit" value="추가"></td>
-						</tr>
-					</form>
-				</table>
+						</c:forEach>
+
+					</table>
 
 
-
-				<div>
-					<a href="/trans">통계로 돌아가기</a>
 				</div>
 
 
 
-
-
-				<h1>일단 리스트</h1>
-				<table id="list-table" border="1">
-
-				</table>
 			</div>
 		</div>
 	</div>
+
 	<footer id="footbar" style="background-color: black;">
 
 		<div class="container col-11">
