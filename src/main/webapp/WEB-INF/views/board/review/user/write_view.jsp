@@ -3,18 +3,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <title>후기 작성</title>
 <script>
@@ -24,12 +29,11 @@
 	}
 </script>
 <script type="text/javascript">
-	$(document).ready(function(){
+	$(document).ready(function() {
 		var name = "<sec:authentication property='principal.username'/>";
 		$("#member").val(name);
 		$("#user").val(name);
 	})
-	
 </script>
 <style type="text/css">
 @font-face {
@@ -71,10 +75,12 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-#main{
+
+#main {
 	padding: 60px;
 }
-#tableTitle{
+
+#tableTitle {
 	width: 1100px;
 	height: 50px;
 	line-height: 50px;
@@ -84,7 +90,8 @@
 	margin: 0 auto;
 	border-radius: 25px;
 }
-#table{
+
+#table {
 	width: 1200px;
 	background-color: rgba(255, 255, 255);
 	margin: 0 auto;
@@ -93,7 +100,7 @@
 </head>
 <body>
 
-<div class="container col-12" id="headbar"
+	<div class="container col-12" id="headbar"
 		style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3">
@@ -140,34 +147,38 @@
 	</div>
 
 
-<div id="main">
-<div id="tableTitle">후기작성</div>
-	<table id="table" width="500" cellpadding="0" cellspacing="0">
-		<form action="/review/userWrite" method="post">
-			<input id="member" type="hidden" name="member_id" value=""> <input
-				 id="user" type="hidden" name="user_id" value=""> <input
-				type="hidden" name="car_type" value="${cars.car_type}">
-			<tr>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 30px;">제목</td>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;"><input type="text" name="b_title" style="font-size: 50px;"></td>
-			</tr>
-			<tr>
-				<td style="font-size: 30px;">내용</td>
-				<td><textarea name="b_contents" id="b_contents" rows="10"
-						onkeyup="calc()" onkeydown="calc()" onkeypass="calc()"  style="width: 1200px; height: 600px;" rows="10" name="b_contents"></textarea>
-					<br> <input type="number" id="result" value="0" readonly
-					style="boarder: none">/300</td>
+	<div id="main">
+		<div id="tableTitle">후기작성</div>
+		<table id="table" width="500" cellpadding="0" cellspacing="0">
+			<form action="/review/userWrite" method="post">
+				<input id="member" type="hidden" name="member_id" value="">
+				<input id="user" type="hidden" name="user_id" value=""> <input
+					type="hidden" name="car_type" value="${cars.car_type}">
+				<tr>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; font-size: 30px;">제목</td>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black;"><input
+						type="text" name="b_title" style="font-size: 50px;"></td>
+				</tr>
+				<tr>
+					<td style="font-size: 30px;">내용</td>
+					<td><textarea name="b_contents" id="b_contents" rows="10"
+							onkeyup="calc()" onkeydown="calc()" onkeypass="calc()"
+							style="width: 1200px; height: 600px;" rows="10" name="b_contents"></textarea>
+						<br> <input type="number" id="result" value="0" readonly
+						style="boarder: none">/300</td>
 
-			</tr>
-			
-			<tr>
-				<td colspan="2"><input type="submit" value="입력"> <a
-					href="/review/userList">목록보기</a></td>
-			</tr>
-		</form>
-	</table>
+				</tr>
+
+				<tr>
+					<td colspan="2"><input type="submit" value="입력"> <a
+						href="/review/userList">목록보기</a></td>
+				</tr>
+			</form>
+		</table>
 	</div>
-	
+
 	<footer id="footbar" style="background-color: black;">
 
 		<div class="container col-11">
@@ -186,6 +197,6 @@
 		</div>
 
 	</footer>
-	
+
 </body>
 </html>

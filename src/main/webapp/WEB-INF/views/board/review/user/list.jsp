@@ -12,10 +12,14 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <title>후기 고객 게시판</title>
@@ -59,10 +63,12 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-#main{
+
+#main {
 	padding: 60px;
 }
-#tableTitle{
+
+#tableTitle {
 	width: 1100px;
 	height: 50px;
 	line-height: 50px;
@@ -72,16 +78,15 @@
 	margin: 30px auto;
 	border-radius: 25px;
 }
-#table{
+
+#table {
 	width: 1200px;;
 }
-
-
 </style>
 </head>
 <body>
 
-<div class="container col-12" id="headbar"
+	<div class="container col-12" id="headbar"
 		style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3">
@@ -127,73 +132,88 @@
 		</div>
 	</div>
 
-<div id="main">
-<div id="tableTitle">후기 게시판</div>
-	<table id="table" width="600" style=" margin: 30px auto;text-align: center; border-spacing: 0px;">
+	<div id="main">
+		<div id="tableTitle">후기 게시판</div>
+		<table id="table" width="600"
+			style="margin: 30px auto; text-align: center; border-spacing: 0px;">
 
-		<tr style=" height: 50px;font-size: 25px;">
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">번호</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">제목</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">차종</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">작성자</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">등록일</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">조회수</td>
-		</tr>
-
-		<!--이때 list는 BListCommand에서 메모리에 올린 list를 뜻함. 포워딩시까지 살아있으므로-->
-		<!--forEach문을 이용해 데이터를 꺼낼 수 있다.-->
-		<c:forEach var="board" items="${reviewUserList}">
-			<tr style="height: 50px; font-size: 20px;">
-				<td width="60px;" style="border-bottom:2px solid gray;">${board.b_no}</td>
-				<td width="700px;" style="text-align: left;border-bottom:2px solid gray;"><a href="/review/userContent?b_no=${board.b_no}" style="text-decoration: none;">${board.b_title}</a>
-				</td>
-				<td style="border-bottom:2px solid gray;">${board.car_type}</td>
-				<td style="border-bottom:2px solid gray;">${board.member_id}**</td>
-				<td style="border-bottom:2px solid gray;">${board.b_date}</td>
-				<td style="border-bottom:2px solid gray;">${board.b_hit}</td>
-
+			<tr style="height: 50px; font-size: 25px;">
+				<td
+					style="border-bottom: 4px solid black; border-top: 4px solid black;">번호</td>
+				<td
+					style="border-bottom: 4px solid black; border-top: 4px solid black;">제목</td>
+				<td
+					style="border-bottom: 4px solid black; border-top: 4px solid black;">차종</td>
+				<td
+					style="border-bottom: 4px solid black; border-top: 4px solid black;">작성자</td>
+				<td
+					style="border-bottom: 4px solid black; border-top: 4px solid black;">등록일</td>
+				<td
+					style="border-bottom: 4px solid black; border-top: 4px solid black;">조회수</td>
 			</tr>
-		</c:forEach>
+
+			<!--이때 list는 BListCommand에서 메모리에 올린 list를 뜻함. 포워딩시까지 살아있으므로-->
+			<!--forEach문을 이용해 데이터를 꺼낼 수 있다.-->
+			<c:forEach var="board" items="${reviewUserList}">
+				<tr style="height: 50px; font-size: 20px;">
+					<td width="60px;" style="border-bottom: 2px solid gray;">${board.b_no}</td>
+					<td width="700px;"
+						style="text-align: left; border-bottom: 2px solid gray;"><a
+						href="/review/userContent?b_no=${board.b_no}"
+						style="text-decoration: none;">${board.b_title}</a></td>
+					<td style="border-bottom: 2px solid gray;">${board.car_type}</td>
+					<td style="border-bottom: 2px solid gray;">${board.member_id}**</td>
+					<td style="border-bottom: 2px solid gray;">${board.b_date}</td>
+					<td style="border-bottom: 2px solid gray;">${board.b_hit}</td>
+
+				</tr>
+			</c:forEach>
 
 
-		<tr height="70px" style="font-size: 25px;">
-			
-			<sec:authorize access="isAuthenticated()">
-				<td colspan="8" style=" border-bottom: 4px solid black; border-top:  4px solid black;"><a href="/review/chooseCar?user_id=<sec:authentication property='principal.username'/>" style="text-decoration: none;">글 작성</a></td>
-			</sec:authorize>
-			<sec:authorize access="isAnonymous()">
-				<td colspan="8"  style=" border-bottom: 4px solid black; border-top:  4px solid black;"><a href="/login" style="text-decoration: none;" >글 작성</a></td>
-			</sec:authorize>
-		</tr>
-		
-		
-		
-		
-		
-		
-	</table>
-<div style="text-align: center; margin: 0 auto; font-size: 30px;">
-	<c:if test="${pageMaker.prev}">
-		<a
-			href="/review/userList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
-	</c:if>
+			<tr height="70px" style="font-size: 25px;">
 
-	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }"
-		var="idx">
-		<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
-		<a href="/review/userList${pageMaker.makeQuery(idx)}" style="margin: 5px;">${idx}</a>
-	</c:forEach>
+				<sec:authorize access="isAuthenticated()">
+					<td colspan="8"
+						style="border-bottom: 4px solid black; border-top: 4px solid black;"><a
+						href="/review/chooseCar?user_id=<sec:authentication property='principal.username'/>"
+						style="text-decoration: none;">글 작성</a></td>
+				</sec:authorize>
+				<sec:authorize access="isAnonymous()">
+					<td colspan="8"
+						style="border-bottom: 4px solid black; border-top: 4px solid black;"><a
+						href="/login" style="text-decoration: none;">글 작성</a></td>
+				</sec:authorize>
+			</tr>
 
-	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-		<a
-			href="/review/userList${pageMaker.makeQuery(pageMaker.endPage +1) }">
-			» </a>
-	</c:if>
+
+
+
+
+
+		</table>
+		<div style="text-align: center; margin: 0 auto; font-size: 30px;">
+			<c:if test="${pageMaker.prev}">
+				<a
+					href="/review/userList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+			</c:if>
+
+			<c:forEach begin="${pageMaker.startPage }"
+				end="${pageMaker.endPage }" var="idx">
+				<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
+				<a href="/review/userList${pageMaker.makeQuery(idx)}"
+					style="margin: 5px;">${idx}</a>
+			</c:forEach>
+
+			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+				<a
+					href="/review/userList${pageMaker.makeQuery(pageMaker.endPage +1) }">
+					» </a>
+			</c:if>
+		</div>
+		<br>
 	</div>
-	<br>
-</div>
 
-<footer id="footbar" style="background-color: black;">
+	<footer id="footbar" style="background-color: black;">
 
 		<div class="container col-11">
 			<div class="row">

@@ -50,48 +50,47 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function (){
-	
-	$("#updateForm").submit(function(event) {
-		//prevendDefault()는 href로 연결해 주지 않고 
-		//단순히 click에 대한 처리를 하도록 해준다.
-		event.preventDefault();
-	
-		var data = {
+	$(document).ready(function() {
+
+		$("#updateForm").submit(function(event) {
+			//prevendDefault()는 href로 연결해 주지 않고 
+			//단순히 click에 대한 처리를 하도록 해준다.
+			event.preventDefault();
+
+			var data = {
 				car_no : $("#car_no").val(),
-    			car_type : $("#car_type").val(),
-    			car_company : $("#car_company").val(),
-    			car_volume : $("#car_volume").val(),
-    			car_color : $("#car_color").val(),
-    			car_fuel : $("#car_fuel").val(),
-    			car_cc : $("#car_cc").val(),
-    			car_price : $("#car_price").val(),
-    			car_img : '${no.car_img}'
-		}
-		var car_no = $('#car_no').val();
-		var form =$('#updateForm')[0];
-		var formData = new FormData(form);
-		formData.append('file', $('#file'));
-		formData.append('key', new Blob([JSON.stringify(data)] , {type: "application/json"}));
-		
-		$.ajax({
-	        type: 'PUT',
-	        url: '/cars/'+car_no,
-	        processData: false,
-	        contentType:false,
-	        data: formData,
-	    }).done(function() {
-	        alert('차량정보가 수정되었습니다.');
-	        window.location.href = 'admin/carlist';
-	    }).fail(function (error) {
-	        alert(JSON.stringify(error));
+				car_type : $("#car_type").val(),
+				car_company : $("#car_company").val(),
+				car_volume : $("#car_volume").val(),
+				car_color : $("#car_color").val(),
+				car_fuel : $("#car_fuel").val(),
+				car_cc : $("#car_cc").val(),
+				car_price : $("#car_price").val(),
+				car_img : '${no.car_img}'
+			}
+			var car_no = $('#car_no').val();
+			var form = $('#updateForm')[0];
+			var formData = new FormData(form);
+			formData.append('file', $('#file'));
+			formData.append('key', new Blob([ JSON.stringify(data) ], {
+				type : "application/json"
+			}));
+
+			$.ajax({
+				type : 'PUT',
+				url : '/cars/' + car_no,
+				processData : false,
+				contentType : false,
+				data : formData,
+			}).done(function() {
+				alert('차량정보가 수정되었습니다.');
+				window.location.href = 'admin/carlist';
+			}).fail(function(error) {
+				alert(JSON.stringify(error));
+			});
+
 		});
-		
 	});
-});
-	
-	
-	
 </script>
 <style type="text/css">
 #warp {
@@ -110,14 +109,15 @@ $(document).ready(function (){
 	line-height: 3em;
 	font-size: 1.5em;
 }
-#pagetitle{
+
+#pagetitle {
 	background: url(../기어.png);
 	background-size: cover;
 }
-.bar{
+
+.bar {
 	background-color: rgb(235, 235, 235);
 	padding-left: 20px;
-	
 }
 </style>
 </head>
@@ -146,27 +146,35 @@ $(document).ready(function (){
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-					<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>

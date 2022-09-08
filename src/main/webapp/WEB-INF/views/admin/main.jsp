@@ -2,7 +2,8 @@
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,27 +93,35 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 300px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>

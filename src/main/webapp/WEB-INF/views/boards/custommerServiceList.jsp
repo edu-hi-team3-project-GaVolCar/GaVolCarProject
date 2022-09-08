@@ -64,41 +64,39 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-#MAIN{
+
+#MAIN {
 	text-align: center;
 	margin: 0 auto;
-	
 }
-#list{
+
+#list {
 	text-align: center;
 	margin: 30px auto;
-	height: 750px;
-	;
+	height: 750px;;
 	border: 1px solid black;
 }
-#notice{
+
+#notice {
 	width: 900px;
 	background: url(../notice.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-size: 120px;
 	color: white;
-	
-
 }
-#QnA{
+
+#QnA {
 	width: 900px;
 	background: url(../question.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	font-size:120px;
+	font-size: 120px;
 	color: white;
-
 }
-
 </style>
 
-<title>event list</title>
+<title>게시판 선택</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -160,23 +158,25 @@
 			</sec:authorize>
 		</div>
 	</div>
-	
-	
-	
-	
+
+
+
+
 	<div id="main">
 		<div id="list" border="1px solid black" class="row col-12">
-			
-				
-					<a href="/notice/userList" id="notice" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">공지사항</div></a>
-				
-					<a href="/qna/userList" id="QnA" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">QnA</div></a>
-				
-		
+
+
+			<a href="/notice/userList" id="notice" class="col-6"
+				style="text-decoration: none;"><div style="margin: 180px 0;">공지사항</div></a>
+
+			<a href="/qna/userList" id="QnA" class="col-6"
+				style="text-decoration: none;"><div style="margin: 180px 0;">QnA</div></a>
+
+
 		</div>
 	</div>
 
-	
+
 
 
 

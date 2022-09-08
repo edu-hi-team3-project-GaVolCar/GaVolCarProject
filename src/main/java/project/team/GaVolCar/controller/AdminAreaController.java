@@ -17,7 +17,7 @@ public class AdminAreaController {
 	private AreaService areaService;
 
 	//list로 이동
-	@GetMapping("admin/arealist")
+	@GetMapping("/admin/arealist")
 	public String list(Model model) {
 
 		log.info("list()...");

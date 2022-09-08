@@ -64,13 +64,14 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-#main{
+
+#main {
 	margin: 90px auto;
 	text-align: center;
 }
 </style>
 
-<title>event list</title>
+<title>404</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -132,16 +133,16 @@
 			</sec:authorize>
 		</div>
 	</div>
-	
+
 	<div id="main">
 		<h1 style="height: 90px;">어이쿠, 뭔가 잘못 되었네요</h1>
-		
+
 		<img src="../없다.png">
-		
+
 		<h1 style="height: 90px;">여기가 어디죠? 다른 곳으로 가봐야 할 것 같아요</h1>
 		<h1 style="height: 90px;">(error 404)</h1>
-		
-	
+
+
 	</div>
 
 

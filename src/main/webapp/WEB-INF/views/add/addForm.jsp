@@ -1,8 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 --> 
+<!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 -->
 
 <!DOCTYPE html>
 <html>
@@ -11,14 +13,18 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-   <title>write</title>
-   <style type="text/css">
-   @font-face {
+<title>회원가입</title>
+<style type="text/css">
+@font-face {
 	font-family: 'tway_sky';
 	src: url("../tway_sky.ttf");
 	font-weight: 400;
@@ -57,31 +63,34 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-      .tHeight{
-      		height: 150px;
-      }
-	   .name{
-			width: 150px;
-			border-bottom: 1px solid gray;
-	 		background-color: rgb(235, 235, 235);
-	 		border-top: 1px solid gray;
-	 		text-align: center;
-	   }
-	   .cont{
-	   	border-bottom: 1px solid gray;
-	   	border-top: 1px solid gray;
-	   }
-	   .box{
-	   		height: 40px;
-	   		font-size: 15px;
-	   		width: 300px;
-	   }
-   
-   </style>
+
+.tHeight {
+	height: 150px;
+}
+
+.name {
+	width: 150px;
+	border-bottom: 1px solid gray;
+	background-color: rgb(235, 235, 235);
+	border-top: 1px solid gray;
+	text-align: center;
+}
+
+.cont {
+	border-bottom: 1px solid gray;
+	border-top: 1px solid gray;
+}
+
+.box {
+	height: 40px;
+	font-size: 15px;
+	width: 300px;
+}
+</style>
 </head>
 <body>
 
-<div class="container col-12" id="headbar"
+	<div class="container col-12" id="headbar"
 		style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3">
@@ -131,41 +140,51 @@
 		</div>
 	</div>
 
-<h3 style="text-align: center; font-size: 40px; padding: 30px 0;">간편 회원가입</h3>
-<table style="margin: 20px auto; font-size: 20px; width: 700px; text-align: left; color: rgb(70, 70, 70);"  cellpadding="10px" cellspacing="0">
-      <form action="insert" method="get">
-         <tr class="tHeight">
-            <td class="name"> 아이디 </td>
-            <td class="cont"> <input class="box" type="text" name="user_id" size = "10"> </td>
-         </tr>
-         <tr class="tHeight">
-            <td class="name"> 비밀번호 </td>
-            <td class="cont"> <input class="box"  type="password" name="user_pw" size = "10" style="font-family: serif;"> </td>
-         </tr>
-         <tr class="tHeight">
-            <td class="name"> 이름 </td>
-            <td class="cont"> <input class="box"  type="text" name="user_name" size = "10"> </td>
-         </tr>
-         <tr class="tHeight">
-            <td class="name"> 전화번호 </td>
-            <td class="cont"> <input class="box"  type="text" name="user_phone_number" size = "10"> </td>
-         </tr>
-         <tr class="tHeight">
-            <td class="name"> 나이 </td>
-            <td class="cont"> <input class="box"  type="text" name="user_age" size = "10"> </td>
-         </tr>
-         <tr class="tHeight">
-            <td class="name"> 이메일 </td>
-            <td class="cont"> <input class="box"  type="text" name="user_email" size = "50"> </td>
-         </tr>
-         <tr class="tHeight">
-            <td colspan="2" style="text-align: center;"> <input class="box" type="submit" value="가입"> &nbsp;&nbsp;</a></td>
-         </tr>
-      </form>
-        </table>
-        
-        
-        <footer id="footbar" style="background-color: black;">
+	<h3 style="text-align: center; font-size: 40px; padding: 30px 0;">간편
+		회원가입</h3>
+	<table
+		style="margin: 20px auto; font-size: 20px; width: 700px; text-align: left; color: rgb(70, 70, 70);"
+		cellpadding="10px" cellspacing="0">
+		<form action="/add/insert" method="get">
+			<tr class="tHeight">
+				<td class="name">아이디</td>
+				<td class="cont"><input class="box" type="text" name="user_id"
+					size="10"></td>
+			</tr>
+			<tr class="tHeight">
+				<td class="name">비밀번호</td>
+				<td class="cont"><input class="box" type="password"
+					name="user_pw" size="10" style="font-family: serif;"></td>
+			</tr>
+			<tr class="tHeight">
+				<td class="name">이름</td>
+				<td class="cont"><input class="box" type="text"
+					name="user_name" size="10"></td>
+			</tr>
+			<tr class="tHeight">
+				<td class="name">전화번호</td>
+				<td class="cont"><input class="box" type="text"
+					name="user_phone_number" size="10"></td>
+			</tr>
+			<tr class="tHeight">
+				<td class="name">나이</td>
+				<td class="cont"><input class="box" type="text" name="user_age"
+					size="10"></td>
+			</tr>
+			<tr class="tHeight">
+				<td class="name">이메일</td>
+				<td class="cont"><input class="box" type="text"
+					name="user_email" size="50"></td>
+			</tr>
+			<tr class="tHeight">
+				<td colspan="2" style="text-align: center;"><input class="box"
+					type="submit" value="가입"> &nbsp;&nbsp;</a></td>
+			</tr>
+		</form>
+	</table>
+
+
+	<footer id="footbar" style="background-color: black;">
 
 		<div class="container col-11">
 			<div class="row">

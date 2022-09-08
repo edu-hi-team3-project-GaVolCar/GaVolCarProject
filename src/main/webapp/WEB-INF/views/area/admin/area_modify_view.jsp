@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>area modify</title>
+<title>지역정보 수정</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -89,26 +89,26 @@
 	});
 </script>
 <style type="text/css">
-	#warp {
-		text-align: center;
-		font-size: 4em;
-		background: url(../기어.png);
-		background-size: cover;
-	}
-	
-	#footbar {
-		text-align: center;
-	}
-	
-	#foottxt {
-		color: gray;
-		line-height: 3em;
-		font-size: 1.5em;
-	}
-	.bar{
+#warp {
+	text-align: center;
+	font-size: 4em;
+	background: url(../기어.png);
+	background-size: cover;
+}
+
+#footbar {
+	text-align: center;
+}
+
+#foottxt {
+	color: gray;
+	line-height: 3em;
+	font-size: 1.5em;
+}
+
+.bar {
 	background-color: rgb(235, 235, 235);
 	padding-left: 20px;
-	
 }
 </style>
 </head>
@@ -137,27 +137,35 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black; wid">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>

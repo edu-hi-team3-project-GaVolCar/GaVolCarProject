@@ -50,33 +50,27 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-	
-	$(document).on("click","#cardelete",function(){
-		
-		
-		
-		
+	$(document).on("click", "#cardelete", function() {
+
 		let car_no = $("#no").html();
 		let car_img = $("#img").val();
-	
-		
-		$.ajax({ 
-            type: "DELETE",
-            url : "/cars/"+car_no+"/"+car_img, //http://localhost:8282/boards/list
-            success : function(result) {
-       	           console.log(result);               	
-       	             
-            }, 
-            error : function(xhr, textStatus, errorThrown){ 
-                    alert(xhr);
-                    alert(textStatus);  
-                    alert(errorThrown);
-                }
-            });		
-	
-});	
-	
-	</script>
+
+		$.ajax({
+			type : "DELETE",
+			url : "/cars/" + car_no + "/" + car_img, //http://localhost:8282/boards/list
+			success : function(result) {
+				console.log(result);
+
+			},
+			error : function(xhr, textStatus, errorThrown) {
+				alert(xhr);
+				alert(textStatus);
+				alert(errorThrown);
+			}
+		});
+
+	});
+</script>
 <style type="text/css">
 #warp {
 	text-align: center;
@@ -94,18 +88,20 @@
 	line-height: 3em;
 	font-size: 1.5em;
 }
-#pagetitle{
+
+#pagetitle {
 	background: url(../기어.png);
 	background-size: cover;
 }
-.bar{
+
+.bar {
 	background-color: rgb(235, 235, 235);
 	padding-left: 20px;
 	width: 150px;
 }
-.cont{
+
+.cont {
 	padding-left: 20px;
-	
 }
 </style>
 </head>
@@ -134,36 +130,43 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-					<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
 
 				<script type="text/javascript">
-	var imglo = "\\carsimages\\" + "${no.car_img}";
-	
-</script>
+					var imglo = "\\carsimages\\" + "${no.car_img}";
+				</script>
 				<table width="700" cellpadding="0" cellspacing="0" class="col-8"
 					border="1" style="font-size: 2em; margin: 5em;">
 
@@ -206,14 +209,17 @@
 						<input type="hidden" id="img" value="${no.car_img}">
 					</tr>
 					<script type="text/javascript">
-			var imglocation = "<img src='"+("\\carsimages\\" + "${no.car_img}")+"' width='900px'>";
-			$("#imglo").append(imglocation);
-		</script>
+						var imglocation = "<img src='"
+								+ ("\\carsimages\\" + "${no.car_img}")
+								+ "' width='900px'>";
+						$("#imglo").append(imglocation);
+					</script>
 					<tr>
 
-						<td  class="cont" colspan="2"><a href="carmodify?car_no=${no.car_no}">수정하기</a>
-							&nbsp;&nbsp; <a href="admin/carlist">목록보기</a> &nbsp;&nbsp; <a
-							id="cardelete" href="admin/carlist">삭제</a></td>
+						<td class="cont" colspan="2"><a
+							href="carmodify?car_no=${no.car_no}">수정하기</a> &nbsp;&nbsp; <a
+							href="admin/carlist">목록보기</a> &nbsp;&nbsp; <a id="cardelete"
+							href="admin/carlist">삭제</a></td>
 					</tr>
 					</form>
 				</table>

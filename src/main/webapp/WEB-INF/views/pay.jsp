@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 -->
@@ -16,8 +17,10 @@
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-	 
-	 <script type="text/javascript">document.cookie = "crosscookie=bar; samesite=none; secure"</script>
+
+<script type="text/javascript">
+	document.cookie = "crosscookie=bar; samesite=none; secure"
+</script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
@@ -64,11 +67,11 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-
 </style>
 
 <title>event list</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 
@@ -132,57 +135,62 @@
 			</sec:authorize>
 		</div>
 	</div>
-	
 
-<!-- jQuery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-  <!-- iamport.payment.js -->
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
-	
-  <script>
-  	
-	  var IMP = window.IMP; // 생략 가능
-	  IMP.init("imp48123044"); // 예: imp00000000
-	  function requestpay() {
-	      // imp.request_pay(param, callback) 결제창 호출
-	      IMP.request_pay({ // param
-	          pg: "html5_inicis",
-	          pay_method: "samsung",
-	          merchant_uid: "ord20180131-0000011",
-	          name: "노르웨이 회전 의자",
-	          amount: 64900,
-	          buyer_email: "gildong@gmail.com",
-	          buyer_name: "홍길동",
-	          buyer_tel: "010-4242-4242",
-	          buyer_addr: "서울특별시 강남구 신사동",
-	          buyer_postcode: "01181"
-	      }, function (rsp) { // callback
-	          if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
-	            // jquery로 http 요청
-	            jquery.ajax({
-	                url: "http://localhost:8282/pay", // 예: https://www.myservice.com/payments/complete
-	                method: "post",
-	                headers: { "content-type": "application/json" },
-	                data: {
-	                    imp_uid: rsp.imp_uid,
-	                    merchant_uid: rsp.merchant_uid
-	                }
-	            }).done(function (data) {
-	              // 가맹점 서버 결제 api 성공시 로직
-	            })
-	          } else {
-	            alert("결제에 실패하였습니다. " +  rsp.error_msg);
-	          }
-	        });
-	    }
-  </script>
-  
-<div style="text-align: center;">
-	
-	<button onclick="requestpay()"><img src="../삼성페이.jpg" height="90px"></button>
+	<!-- jQuery -->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<!-- iamport.payment.js -->
+	<script type="text/javascript"
+		src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
-</div>
+
+	<script>
+		var IMP = window.IMP; // 생략 가능
+		IMP.init("imp48123044"); // 예: imp00000000
+		function requestpay() {
+			// imp.request_pay(param, callback) 결제창 호출
+			IMP.request_pay({ // param
+				pg : "html5_inicis",
+				pay_method : "samsung",
+				merchant_uid : "ord20180131-0000011",
+				name : "노르웨이 회전 의자",
+				amount : 64900,
+				buyer_email : "gildong@gmail.com",
+				buyer_name : "홍길동",
+				buyer_tel : "010-4242-4242",
+				buyer_addr : "서울특별시 강남구 신사동",
+				buyer_postcode : "01181"
+			}, function(rsp) { // callback
+				if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
+					// jquery로 http 요청
+					jquery.ajax({
+						url : "http://localhost:8282/pay", // 예: https://www.myservice.com/payments/complete
+						method : "post",
+						headers : {
+							"content-type" : "application/json"
+						},
+						data : {
+							imp_uid : rsp.imp_uid,
+							merchant_uid : rsp.merchant_uid
+						}
+					}).done(function(data) {
+						// 가맹점 서버 결제 api 성공시 로직
+					})
+				} else {
+					alert("결제에 실패하였습니다. " + rsp.error_msg);
+				}
+			});
+		}
+	</script>
+
+	<div style="text-align: center;">
+
+		<button onclick="requestpay()">
+			<img src="../삼성페이.jpg" height="90px">
+		</button>
+
+	</div>
 
 
 	<footer id="footbar" style="background-color: black;">

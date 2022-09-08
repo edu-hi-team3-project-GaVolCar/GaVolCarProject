@@ -107,66 +107,84 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$(document)
+								.ready(
+										function() {
+											var memberName = "<sec:authentication property='principal.username'/>";
+											console.log(memberName);
 
-	
+											$
+													.ajax({
+														type : "GET",
+														url : "/pevent/"
+																+ "<sec:authentication property='principal.username'/>",
+														success : function(
+																result) {
+															console.log(result);
 
-$(document).ready(function() {
-	$(document).ready(function() {
-		var memberName = "<sec:authentication property='principal.username'/>";
-		console.log(memberName);
-		
-		
-		$.ajax({
-			type:"GET",
-			url:"/pevent/"+"<sec:authentication property='principal.username'/>",
-			success:function(result){
-				console.log(result);
-			
-				list(result);
-			}
-		});
-	});
-	
-	
-	function list(result) {
-	    var htmls="";
-	    
-	    	
-	    if(result.length < 1){
-	       htmls.push("등록된 장소가 없습니다.");
-	    }else{         
-	       var totalPoint=0;
-	    	$(result).each(function() { 
-	    		htmls += '<tr>';
-	    	   	
-		        htmls += '<td>' + this.points +'</td>'; 
-		        htmls += '<td>' + this.point_date +'</td>';  
-		        totalPoint +=  this.points;
-	     		$(this.rentsList).each(function(){
-		          
-		        	
-		        	htmls += '<td>' + this.rent_start_date +'</td>'; 
-		        	htmls += '<td>' + this.rent_end_date +'</td>'; 
-		        	htmls += '<td>' + this.final_cost + '</td>';
-		        
-		   	    	htmls += '<td>' + this.car_no + '</td>';
-		        	htmls += '</tr>';   
-	    	  	});
-	     	
-	       	});
-	    	htmls += '<tr>';
-    	   	htmls += '<td colspan="11" >' + "총 포인트" + '</td>';
-    	   	htmls += '<tr>';
-	    	htmls += '<tr>';
-    	   	htmls += '<td colspan="11">' + totalPoint + 'Point' +'</td>';
-    	   	htmls += '<tr>';
-    	   	$("#totalPointBanner").append(totalPoint + ' Point');
-	    }
-	    $("#list-table").append(htmls);
-	}
-	
-	
-});	
+															list(result);
+														}
+													});
+										});
+
+						function list(result) {
+							var htmls = "";
+
+							if (result.length < 1) {
+								htmls.push("포인트가 없습니다.");
+							} else {
+								var totalPoint = 0;
+								$(result)
+										.each(
+												function() {
+													htmls += '<tr>';
+
+													htmls += '<td>'
+															+ this.points
+															+ '</td>';
+													htmls += '<td>'
+															+ this.point_date
+															+ '</td>';
+													totalPoint += this.points;
+													$(this.rentsList)
+															.each(
+																	function() {
+
+																		htmls += '<td>'
+																				+ this.rent_start_date
+																				+ '</td>';
+																		htmls += '<td>'
+																				+ this.rent_end_date
+																				+ '</td>';
+																		htmls += '<td>'
+																				+ this.final_cost
+																				+ '</td>';
+
+																		htmls += '<td>'
+																				+ this.car_no
+																				+ '</td>';
+																		htmls += '</tr>';
+																	});
+
+												});
+								htmls += '<tr>';
+								htmls += '<td colspan="11" >' + "총 포인트"
+										+ '</td>';
+								htmls += '<tr>';
+								htmls += '<tr>';
+								htmls += '<td colspan="11">' + totalPoint
+										+ 'Point' + '</td>';
+								htmls += '<tr>';
+								$("#totalPointBanner").append(
+										totalPoint + ' Point');
+							}
+							$("#list-table").append(htmls);
+						}
+
+					});
 </script>
 
 </head>

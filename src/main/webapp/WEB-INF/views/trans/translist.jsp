@@ -21,7 +21,7 @@
 
 <meta chartset="utf-8">
 <title>막대 그래프</title>
-<!-- 라이브러리를 읽어들임 ======(※1) -->
+
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 
@@ -31,19 +31,19 @@
             'packages': ['corechart']
         });
 
-        // 그래프API로드가 완료되면 실행할 수 있도록 이벤트를 지정 ---- (※3)  
+        // 그래프API로드가 완료되면 실행할 수 있도록 이벤트를 지정 
         google.setOnLoadCallback(drawChart);
 
-        // 차트 그리기를 실행 --- (※4)  
+        // 차트 그리기를 실행 
         function drawChart() {
-            // 데이터오브젝트를 작성 --- (※5)    
+            // 데이터오브젝트를 작성    
             var data = new google.visualization.DataTable();
 
-            // 데이터의 컬럼을 지정 -------- (※6)    
+            // 데이터의 컬럼을 지정 
             data.addColumn('string', '회사');
             data.addColumn('number', '거래량');
 
-            // 실제 데이터를 지정 ------------- (※7)    
+            // 실제 데이터를 지정     
             data.addRows([
             	<c:forEach var="transCompany" items="${company}">
    				['${transCompany.company}' , ${transCompany.companyCount}],             
@@ -51,7 +51,7 @@
             
             ]);
 
-            // 그래피의 옵션을 지정 ------- (※8)    
+            // 그래프의 옵션을 지정 
             var opt = {
                 'title': '제조사별 거래비율',
                 'width': 1000,
@@ -65,14 +65,11 @@
                     }
                 } //'none' 
             };
-            // 그래프를 표시 ------------- (※9)    
+            // 그래프를 표시    
             var chart = new google.visualization.PieChart( // ***Chart
                 document.getElementById('pieChart_div'));
             chart.draw(data, opt);
         }
-
-        
-      
     </script>
 
 
@@ -305,7 +302,9 @@
 			<div class="col-4">
 				<div id="text1">
 					<h2>저희 매장에서 선호 되었던 자량제조사들 입니다.</h2>
-					<span style= "font-size: 1.5em;">가장 선호되는 제조사는</span> <span id="maxC" style="color: rgb(41, 144, 212); font-size: 2em;"></span> <span style= "font-size: 1.5em;">입니다</span>
+					<span style="font-size: 1.5em;">가장 선호되는 제조사는</span> <span id="maxC"
+						style="color: rgb(41, 144, 212); font-size: 2em;"></span> <span
+						style="font-size: 1.5em;">입니다</span>
 				</div>
 			</div>
 			<div id="mainarea1" class="col-4">
@@ -349,7 +348,9 @@
 			<div class="col-4">
 				<div id="text2">
 					<h2>저희 매장의 매출을 월별로 나타낸 그래프 입니다.</h2>
-					<span style= "font-size: 1.5em;">가장매출이 많이나온 달은</span> <span id="maxM" style="color: rgb(255, 185, 35); font-size: 2em;"></span> <span style= "font-size: 1.5em;">월 입니다</span>
+					<span style="font-size: 1.5em;">가장매출이 많이나온 달은</span> <span
+						id="maxM" style="color: rgb(255, 185, 35); font-size: 2em;"></span>
+					<span style="font-size: 1.5em;">월 입니다</span>
 				</div>
 			</div>
 			<div id="mainarea2" class="col-4">

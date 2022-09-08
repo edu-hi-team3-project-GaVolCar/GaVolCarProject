@@ -1,22 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    
-	<title>마이 페이지</title>
-	<style type="text/css">
-	@font-face {
+
+<title>마이 페이지</title>
+<style type="text/css">
+@font-face {
 	font-family: 'tway_sky';
 	src: url("../tway_sky.ttf");
 	font-weight: 400;
@@ -55,21 +61,26 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-	
-	#main{
+
+#main {
 	text-align: center;
 	width: 700px;
 	margin: 60px auto;
+}
+</style>
+<script type="text/javascript">
+	function couponPopup() {
+		window
+				.open(
+						"./couponInfo?user_id=<sec:authentication property='principal.username'/>",
+						"coupon", "width=900, height=400, left=100, top=50");
 	}
-	</style>
-	<script type="text/javascript">
-	function couponPopup(){window.open("./couponInfo?user_id=<sec:authentication property='principal.username'/>", "coupon", "width=900, height=400, left=100, top=50");}
-	</script>
+</script>
 </head>
 
 <body>
 
-<div class="container col-12" id="headbar"
+	<div class="container col-12" id="headbar"
 		style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3">
@@ -116,60 +127,72 @@
 	</div>
 
 
-<div id="main">
-<h1>마이페이지</h1>
-<%
-String user_id = (String) session.getAttribute("user_id");
-%>
+	<div id="main">
+		<h1>마이페이지</h1>
+		<%
+			String user_id = (String) session.getAttribute("user_id");
+		%>
 
-<p style="margin: 20px;">안녕하세요 <sec:authentication property="principal.username"/>님!</p>
-<h3 style=" text-align: left; margin: 60px 30px;">내 정보</h3>
-<table style="margin: 20px auto; font-size: 20px; width: 700px; text-align: left; color: rgb(70, 70, 70);"  cellpadding="10px" cellspacing="0">
-	<tr height="50px">
-		<td width="150px" style="border-bottom: 1px solid gray;border-top: 1px solid gray; background-color: rgb(235, 235, 235)">유저 아이디
-		</td>
-		<td style="border-bottom: 1px solid gray;border-top: 1px solid gray;">${info.user_id}
-		</td>
-	</tr>
-	<tr height="50px">
-		<td style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">이름
-		</td>
-		<td style="border-bottom: 1px solid gray;">${info.user_name}
-		</td>
-	</tr>
-	<tr height="50px">
-		<td style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">전화번호
-		</td>
-		<td style="border-bottom: 1px solid gray;">${info.user_phone_number}
-		</td>
-	</tr>
-	<tr height="50px">
-		<td style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">나이
-		</td>
-		<td style="border-bottom: 1px solid gray;">${info.user_age}
-		</td>
-	</tr>
-	<tr height="50px">
-		<td style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">이메일
-		</td>
-		<td style="border-bottom: 1px solid gray;">${info.user_email}
-		</td>
-	</tr>
-	<tr height="50px">
-		<td style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">쿠폰
-		</td>
-		<td style="border-bottom: 1px solid gray;"><input type="button" value="보유쿠폰 확인" onclick="couponPopup();" style="font-size: 20px;">
-		</td>
-	</tr>
-</table>
+		<p style="margin: 20px;">
+			안녕하세요
+			<sec:authentication property="principal.username" />
+			님!
+		</p>
+		<h3 style="text-align: left; margin: 60px 30px;">내 정보</h3>
+		<table
+			style="margin: 20px auto; font-size: 20px; width: 700px; text-align: left; color: rgb(70, 70, 70);"
+			cellpadding="10px" cellspacing="0">
+			<tr height="50px">
+				<td width="150px"
+					style="border-bottom: 1px solid gray; border-top: 1px solid gray; background-color: rgb(235, 235, 235)">유저
+					아이디</td>
+				<td
+					style="border-bottom: 1px solid gray; border-top: 1px solid gray;">${info.user_id}
+				</td>
+			</tr>
+			<tr height="50px">
+				<td
+					style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">이름
+				</td>
+				<td style="border-bottom: 1px solid gray;">${info.user_name}</td>
+			</tr>
+			<tr height="50px">
+				<td
+					style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">전화번호
+				</td>
+				<td style="border-bottom: 1px solid gray;">${info.user_phone_number}
+				</td>
+			</tr>
+			<tr height="50px">
+				<td
+					style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">나이
+				</td>
+				<td style="border-bottom: 1px solid gray;">${info.user_age}</td>
+			</tr>
+			<tr height="50px">
+				<td
+					style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">이메일
+				</td>
+				<td style="border-bottom: 1px solid gray;">${info.user_email}</td>
+			</tr>
+			<tr height="50px">
+				<td
+					style="border-bottom: 1px solid gray; background-color: rgb(235, 235, 235)">쿠폰
+				</td>
+				<td style="border-bottom: 1px solid gray;"><input type="button"
+					value="보유쿠폰 확인" onclick="couponPopup();" style="font-size: 20px;">
+				</td>
+			</tr>
+		</table>
 
 
 
 
-<input type="button" value="내 정보 수정" onclick="location.href='/user/info'">
-</div>
+		<input type="button" value="내 정보 수정"
+			onclick="location.href='/user/info'">
+	</div>
 
-<footer id="footbar" style="background-color: black;">
+	<footer id="footbar" style="background-color: black;">
 
 		<div class="container col-11">
 			<div class="row">

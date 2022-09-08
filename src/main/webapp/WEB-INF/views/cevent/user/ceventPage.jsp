@@ -78,7 +78,8 @@
 }
 
 #list-table {
-	width: 800px; font-size : 30px;
+	width: 800px;
+	font-size: 30px;
 	text-align: center;
 	margin: auto;
 	font-size: 30px;
@@ -96,66 +97,62 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$(document)
+								.ready(
+										function() {
+											var memberName = "<sec:authentication property='principal.username'/>";
+											console.log(memberName);
 
-	
+											$
+													.ajax({
+														type : "GET",
+														url : "/cevent/"
+																+ "<sec:authentication property='principal.username'/>",
+														success : function(
+																result) {
+															console.log(result);
 
-$(document).ready(function() {
-	$(document).ready(function() {
-		var memberName = "<sec:authentication property='principal.username'/>";
-		console.log(memberName);
-		
-		
-		$.ajax({
-			type:"GET",
-			url:"/cevent/"+"<sec:authentication property='principal.username'/>",
-			success:function(result){
-				console.log(result);
-			
-				list(result);
-			}
-		});
-	});
-	
-	
-	function list(result) {
-	    var htmls="";
-	    
-	    	
-	    if(result.length < 1){
-	       $("#couponresult").append("획득한 쿠폰이 없습니다.")
-	    }else{
-	    	 $("#couponresult").append("쿠폰을 이미 획득했습니다.")
-	    	$(result).each(function() { 
-	    		htmls += '<tr>';
-	    	   	
-		        htmls += '<td>' + this.coupon_name +'</td>'; 
-		        htmls += '<td>' + this.coupon_contents +'</td>';  
-		        
-		          
-			       
-	     		$(this.boardsList).each(function(){
-		          
-		        	
-		        	htmls += '<td>' + this.b_title +'</td>'; 
-		        	htmls += '<td>' + this.b_date + '</td>';
-		        	
-		   	    	
-		   	    	
-		   	    	
-		   	    	
-		        	htmls += '</tr>';   
-	    	  	});
-	     	
-	       	});
-	    	
-	    }
-	    $("#list-table").append(htmls);
-	  
-	    	
-	}
-	
-	
-});	
+															list(result);
+														}
+													});
+										});
+						function list(result) {
+							var htmls = "";
+
+							if (result.length < 1) {
+								$("#couponresult").append("획득한 쿠폰이 없습니다.")
+							} else {
+								$("#couponresult").append("쿠폰을 이미 획득했습니다.")
+								$(result).each(
+										function() {
+											htmls += '<tr>';
+											htmls += '<td>' + this.coupon_name
+													+ '</td>';
+											htmls += '<td>'
+													+ this.coupon_contents
+													+ '</td>';
+											$(this.boardsList).each(
+													function() {
+														htmls += '<td>'
+																+ this.b_title
+																+ '</td>';
+														htmls += '<td>'
+																+ this.b_date
+																+ '</td>';
+														htmls += '</tr>';
+													});
+
+										});
+
+							}
+							$("#list-table").append(htmls);
+
+						}
+
+					});
 </script>
 
 </head>
@@ -209,7 +206,7 @@ $(document).ready(function() {
 
 	<div id="couponresult"></div>
 	<div id="tabletop">획득내역</div>
-	<table id="list-table" border="1">
+	<table id="list-table" border="1" style="margin-bottom: 20px;">
 		<tr>
 
 			<td>쿠폰이름</td>
@@ -227,7 +224,6 @@ $(document).ready(function() {
 
 		</tr>
 	</table>
-	<a href="member/eventlist">리스트로</a>
 
 
 

@@ -1,7 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>   
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -9,12 +11,16 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<title> 공지사항 고객 글 보기 </title>
+<title>공지사항 고객 글 보기</title>
 <style type="text/css">
 @font-face {
 	font-family: 'tway_sky';
@@ -56,10 +62,11 @@
 	font-size: 1em;
 }
 
-#main{
+#main {
 	padding: 60px;
 }
-#tableTitle{
+
+#tableTitle {
 	width: 1100px;
 	height: 50px;
 	line-height: 50px;
@@ -69,7 +76,8 @@
 	margin: 0 auto;
 	border-radius: 25px;
 }
-#table{
+
+#table {
 	width: 1200px;
 	background-color: rgba(255, 255, 255);
 	margin: 0 auto;
@@ -81,7 +89,7 @@
 <body>
 
 
-<div class="container col-12" id="headbar"
+	<div class="container col-12" id="headbar"
 		style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3">
@@ -130,32 +138,38 @@
 
 
 
-<div id="main">
-<div id="tableTitle">공지사항 게시판</div>
-	<table id="table" width="700" cellpadding="0" cellspacing="0">
-		<form method="post">
-			<input type="hidden" name="b_no" value="${noticeUserContent.b_no}">		
-			<input type="hidden" name="b_code" value="${noticeUserContent.b_code}">
-			<input type="hidden" name="bid" value="${noticeUserContent.b_no}">
-			<tr>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;"><input type="text" name="b_title"
-					value="${noticeUserContent.b_title}" style="font-size: 40px;height: 70px"></td>
-					<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">${noticeUserContent.member_id}** | ${noticeUserContent.b_date} | ${noticeUserContent.b_hit}
-					</td>
-				
-			</tr>
-			<tr>
-				
-				<td colspan="2" > <textarea style="width: 1200px; height: 400px; font-size: 25px;" rows="10" name="b_contents" >${noticeUserContent.b_contents}</textarea></td>
-			</tr>
-			<tr >
-				<td colspan="2">
-				&nbsp;&nbsp;<a href="userList" style="text-decoration: none; font-size: 30px;">목록보기</a> 
-			</tr>
-		</form>
-	</table>
+	<div id="main">
+		<div id="tableTitle">공지사항 게시판</div>
+		<table id="table" width="700" cellpadding="0" cellspacing="0">
+			<form method="post">
+				<input type="hidden" name="b_no" value="${noticeUserContent.b_no}">
+				<input type="hidden" name="b_code"
+					value="${noticeUserContent.b_code}"> <input type="hidden"
+					name="bid" value="${noticeUserContent.b_no}">
+				<tr>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black;"><input
+						type="text" name="b_title" value="${noticeUserContent.b_title}"
+						style="font-size: 40px; height: 70px"></td>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black;">${noticeUserContent.member_id}**
+						| ${noticeUserContent.b_date} | ${noticeUserContent.b_hit}</td>
+
+				</tr>
+				<tr>
+
+					<td colspan="2"><textarea
+							style="width: 1200px; height: 400px; font-size: 25px;" rows="10"
+							name="b_contents">${noticeUserContent.b_contents}</textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;&nbsp;<a href="userList"
+						style="text-decoration: none; font-size: 30px;">목록보기</a>
+				</tr>
+			</form>
+		</table>
 	</div>
-	
+
 	<footer id="footbar" style="background-color: black;">
 
 		<div class="container col-11">
@@ -174,6 +188,6 @@
 		</div>
 
 	</footer>
-	
+
 </body>
 </html>

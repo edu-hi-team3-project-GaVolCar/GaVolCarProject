@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>area contents</title>
+<title>지역정보</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -50,33 +50,27 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-	
-	$(document).on("click","#area_delete",function(){
-		
-		
-		
-		
+	$(document).on("click", "#area_delete", function() {
+
 		let area_name = $("#name").html();
 		let area_img = $("#img").val();
-	
-		
-		$.ajax({ 
-            type: "DELETE",
-            url : "/areas/"+area_name+" /"+area_img, //http://localhost:8282/boards/list
-            success : function(result) {
-       	           console.log(result);               	
-       	             
-            }, 
-            error : function(xhr, textStatus, errorThrown){ 
-                    alert(xhr);
-                    alert(textStatus);  
-                    alert(errorThrown);
-                }
-            });		
-	
-});	
-	
-	</script>
+
+		$.ajax({
+			type : "DELETE",
+			url : "/areas/" + area_name + " /" + area_img, //http://localhost:8282/boards/list
+			success : function(result) {
+				console.log(result);
+
+			},
+			error : function(xhr, textStatus, errorThrown) {
+				alert(xhr);
+				alert(textStatus);
+				alert(errorThrown);
+			}
+		});
+
+	});
+</script>
 <style type="text/css">
 #warp {
 	text-align: center;
@@ -94,13 +88,14 @@
 	line-height: 3em;
 	font-size: 1.5em;
 }
-.bar{
+
+.bar {
 	background-color: rgb(235, 235, 235);
 	padding-left: 20px;
 }
-.cont{
+
+.cont {
 	padding-left: 20px;
-	
 }
 </style>
 </head>
@@ -129,36 +124,43 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black; wid">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
 
 				<script type="text/javascript">
-	var imglo = "\\areaimage\\" + "${name.area_img}";
-	
-</script>
+					var imglo = "\\areaimage\\" + "${name.area_img}";
+				</script>
 				<table width="700" cellpadding="0" cellspacing="0" class="col-10"
 					border="1" style="font-size: 2em; margin: 5em;">
 
@@ -185,9 +187,11 @@
 						<input type="hidden" id="img" value="${name.area_img}">
 					</tr>
 					<script type="text/javascript">
-			var imglocation = "<img src='"+("\\areaimage\\" + "${name.area_img}")+"' width='900px'>";
-			$("#imglo").append(imglocation);
-		</script>
+						var imglocation = "<img src='"
+								+ ("\\areaimage\\" + "${name.area_img}")
+								+ "' width='900px'>";
+						$("#imglo").append(imglocation);
+					</script>
 					<tr>
 						<td class="bar">전화번호</td>
 						<td class="cont" id="tel">${name.area_tel}</td>
@@ -196,8 +200,8 @@
 
 						<td class="cont" colspan="2"><a
 							href="areamodify?area_name=${name.area_name}">수정하기</a>
-							&nbsp;&nbsp; <a href="admin/arealist">목록보기</a> &nbsp;&nbsp; 
-							<a id="area_delete" href="admin/arealist">삭제</a></td>
+							&nbsp;&nbsp; <a href="admin/arealist">목록보기</a> &nbsp;&nbsp; <a
+							id="area_delete" href="admin/arealist">삭제</a></td>
 					</tr>
 					</form>
 				</table>

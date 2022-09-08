@@ -21,7 +21,7 @@ public class UserDetailsVO implements UserDetails, OAuth2User {
 
 	private UsersVO user;
 	private UsersVO2 user2;
-	 
+
 	private Map<String, Object> attributes;// 구글 정보
 
 	// 일반 시큐리티 로그인 사용
@@ -61,9 +61,9 @@ public class UserDetailsVO implements UserDetails, OAuth2User {
 
 	@Override
 	public String getUsername() {
-		
-			return user.getUser_id();
-		
+
+		return user.getUser_id();
+
 	}
 
 	//계정 만료 여부

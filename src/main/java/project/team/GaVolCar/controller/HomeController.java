@@ -16,11 +16,11 @@ public class HomeController {
 	public String home() {
 		return "redirect:/main";
 	}
-	
-	@GetMapping("/testblankbase")
-	public String blank() {
-		return "/blankbase";
-	}
+
+	//	@GetMapping("/testblankbase")
+	//	public String blank() {
+	//		return "/blankbase";
+	//	}
 
 	//	@GetMapping("/user/userHome")
 	//	public String userHome() {
@@ -48,21 +48,21 @@ public class HomeController {
 	@GetMapping("/error/403")
 	public String error404(HttpServletRequest request, HttpServletResponse response) {
 		log.info("error 404");
-        log.info("=====request : " + request);
+		log.info("=====request : " + request);
 		return "/error/403";
 	}
 	@GetMapping("/error/404")
 	public String error2() {
 		return "/error/404";
 	}
-	@GetMapping("/pay")
-	public String pay() {
-		return "pay";
-	}
-	@GetMapping("/admin/adminHome")
-	public void adminHome() {
-		log.info("adminHome..");
-	}
+	//	@GetMapping("/pay")
+	//	public String pay() {
+	//		return "pay";
+	//	}
+	//	@GetMapping("/admin/adminHome")
+	//	public void adminHome() {
+	//		log.info("adminHome..");
+	//	}
 
 
 }

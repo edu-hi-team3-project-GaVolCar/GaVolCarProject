@@ -64,15 +64,15 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-#mainpop{
- 	margin: 30px;
+
+#mainpop {
+	margin: 30px;
 	text-align: center;
 	line-height: 40px;
 }
-
 </style>
 
-<title>event list</title>
+<title>삭제 팝업</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -93,20 +93,19 @@
 		style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3">
-				<a id="headlogo"><img src="../투명로고.png"
-					height="100em"></a>
+				<a id="headlogo"><img src="../투명로고.png" height="100em"></a>
 			</div>
 		</div>
 	</div>
 	<div id="mainpop">
-	<h4>고객의 예약을 정말로 취소하시겠습니까?</h4>
-	<div style="color: red;">(고객에게 협조 혹은 통보를 하였나요?)</div>
-	<input type="submit" value="예약취소">
+		<h4>고객의 예약을 정말로 취소하시겠습니까?</h4>
+		<div style="color: red;">(고객에게 협조 혹은 통보를 하였나요?)</div>
+		<input type="submit" value="예약취소">
 	</div>
 
 
 
 
-	
+
 </body>
 </html>

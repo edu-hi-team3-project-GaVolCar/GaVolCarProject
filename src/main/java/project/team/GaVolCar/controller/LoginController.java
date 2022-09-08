@@ -8,12 +8,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class LoginController {
-	
+
 	@GetMapping("/login")
 	public String login() {
 		log.info("login()..");
 		return "login/login";
 	}
-	
+
 
 }

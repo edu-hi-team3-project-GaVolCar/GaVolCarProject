@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -16,10 +17,14 @@
 <title>Q&A 관리자 글 목록</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <style type="text/css">
@@ -39,10 +44,12 @@
 	line-height: 30px;
 	font-size: 15px;
 }
-#main{
+
+#main {
 	padding: 60px;
 }
-#tableTitle{
+
+#tableTitle {
 	width: 1100px;
 	height: 50px;
 	line-height: 50px;
@@ -52,14 +59,15 @@
 	margin: 0 auto;
 	border-radius: 25px;
 }
-#table{
+
+#table {
 	width: 1200px;;
 }
-#pagetitle{
+
+#pagetitle {
 	background: url(../기어.png);
 	background-size: cover;
 }
-
 </style>
 </head>
 
@@ -87,81 +95,101 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
 
-<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">QnA 관리</div>
+				<div id="pagetitle"
+					style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">QnA
+					관리</div>
 
-<div id="main">
-<div id="tableTitle">QnA 게시판</div>
-	<table id="table" width="600" style=" margin: 30px auto;text-align: center; border-spacing: 0px;">
+				<div id="main">
+					<div id="tableTitle">QnA 게시판</div>
+					<table id="table" width="600"
+						style="margin: 30px auto; text-align: center; border-spacing: 0px;">
 
-		<tr style=" height: 40px;">
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">No.</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">제목</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">작성자</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">등록일</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">조회수</td>
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">숨기기</td>
-		</tr>
+						<tr style="height: 40px;">
+							<td
+								style="border-bottom: 4px solid black; border-top: 4px solid black;">No.</td>
+							<td
+								style="border-bottom: 4px solid black; border-top: 4px solid black;">제목</td>
+							<td
+								style="border-bottom: 4px solid black; border-top: 4px solid black;">작성자</td>
+							<td
+								style="border-bottom: 4px solid black; border-top: 4px solid black;">등록일</td>
+							<td
+								style="border-bottom: 4px solid black; border-top: 4px solid black;">조회수</td>
+							<td
+								style="border-bottom: 4px solid black; border-top: 4px solid black;">숨기기</td>
+						</tr>
 
-		<!--이때 list는 BListCommand에서 메모리에 올린 list를 뜻함. 포워딩시까지 살아있으므로-->
-		<!--forEach문을 이용해 데이터를 꺼낼 수 있다.-->
-		<c:forEach var="board" items="${qnaAdminList}">
-			<tr>
-				<td width="60px;"  style="border-bottom:2px solid gray;">${board.b_no}</td>
-				<td width="700px;" style="border-bottom:2px solid gray;text-align: left;"><a href="/qna/adminContent?b_no=${board.b_no}" style="text-decoration: none;">${board.b_title}</a>
-				</td>
-				<td style="border-bottom:2px solid gray;">${board.user_id}</td>
-				<td style="border-bottom:2px solid gray;">${board.b_date}</td>
-				<td style="border-bottom:2px solid gray;">${board.b_hit}</td>
-				<td style="border-bottom:2px solid gray;" colspan="2">&nbsp;&nbsp;<a
-					href="/qna/adminHidden?b_no=${board.b_no}">숨기기</a>
-			</tr>
-		</c:forEach>
-	</table>
-<div style="text-align: center; margin: 0 auto; font-size: 20px;">
-	<c:if test="${pageMaker.prev}">
-		<a
-			href="/qna/adminList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
-	</c:if>
+						<!--이때 list는 BListCommand에서 메모리에 올린 list를 뜻함. 포워딩시까지 살아있으므로-->
+						<!--forEach문을 이용해 데이터를 꺼낼 수 있다.-->
+						<c:forEach var="board" items="${qnaAdminList}">
+							<tr>
+								<td width="60px;" style="border-bottom: 2px solid gray;">${board.b_no}</td>
+								<td width="700px;"
+									style="border-bottom: 2px solid gray; text-align: left;"><a
+									href="/qna/adminContent?b_no=${board.b_no}"
+									style="text-decoration: none;">${board.b_title}</a></td>
+								<td style="border-bottom: 2px solid gray;">${board.user_id}</td>
+								<td style="border-bottom: 2px solid gray;">${board.b_date}</td>
+								<td style="border-bottom: 2px solid gray;">${board.b_hit}</td>
+								<td style="border-bottom: 2px solid gray;" colspan="2">&nbsp;&nbsp;<a
+									href="/qna/adminHidden?b_no=${board.b_no}">숨기기</a>
+							</tr>
+						</c:forEach>
+					</table>
+					<div style="text-align: center; margin: 0 auto; font-size: 20px;">
+						<c:if test="${pageMaker.prev}">
+							<a
+								href="/qna/adminList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+						</c:if>
 
-	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }"
-		var="idx">
-		<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
-		<a href="/qna/adminList${pageMaker.makeQuery(idx)}">${idx}</a>
-	</c:forEach>
+						<c:forEach begin="${pageMaker.startPage }"
+							end="${pageMaker.endPage }" var="idx">
+							<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
+							<a href="/qna/adminList${pageMaker.makeQuery(idx)}">${idx}</a>
+						</c:forEach>
 
-	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-		<a href="/qna/adminList${pageMaker.makeQuery(pageMaker.endPage +1) }">
-			» </a>
-	</c:if>
-	</div>
-	<br>
-</div>
+						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+							<a
+								href="/qna/adminList${pageMaker.makeQuery(pageMaker.endPage +1) }">
+								» </a>
+						</c:if>
+					</div>
+					<br>
+				</div>
 			</div>
 		</div>
 	</div>

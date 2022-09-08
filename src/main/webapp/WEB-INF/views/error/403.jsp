@@ -64,13 +64,14 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-#main{
+
+#main {
 	margin: 90px auto;
 	text-align: center;
 }
 </style>
 
-<title>event list</title>
+<title>403</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -132,16 +133,16 @@
 			</sec:authorize>
 		</div>
 	</div>
-	
+
 	<div id="main">
 		<h1 style="height: 90px;">어이쿠, 뭔가 잘못 되었네요</h1>
-		
+
 		<img src="../라이센스.png">
-		
+
 		<h1 style="height: 90px;">권한없이 여기로 들어오시면 안되요. 다른 곳으로 가세요</h1>
 		<h1 style="height: 90px;">(error 403)</h1>
-		
-	
+
+
 	</div>
 
 

@@ -14,10 +14,10 @@ import project.team.GaVolCar.vo.UsersVO;
 @Slf4j
 @Controller
 public class AdminUserController {
-	
+
 	@Autowired
 	private AdminUserService service;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 
@@ -27,7 +27,7 @@ public class AdminUserController {
 		model.addAttribute("MemberList", service.getList());
 		return "/admin/list";
 	}
-	
+
 	@GetMapping("/admin/info")
 	public String info(UsersVO usersVO,Model model) {
 		log.info("info()..");
@@ -35,20 +35,20 @@ public class AdminUserController {
 		model.addAttribute("info", service.readMember(user_id));
 		return "/admin/info";
 	}
-	
+
 	@GetMapping("/admin/modify")
 	public String modify(UsersVO usersVO) {
 		log.info("modify()..");
-		
+
 		String rawPw = usersVO.getUser_pw();
 		String encPassword = encoder.encode(rawPw);
 		usersVO.setUser_pw(encPassword);
 		int rn = service.updateMember(usersVO);
-		
+
 		log.info("modify()..result number : " + rn);
 		return "redirect:/admin/list";
 	}
-	
+
 	@GetMapping("/admin/delete")
 	public String delete(UsersVO usersVO) {
 		log.info("delete()..");
@@ -56,26 +56,33 @@ public class AdminUserController {
 		log.info("delete()..result number : " + rn);
 		return "redirect:/admin/list";
 	}
-	
+
 	@GetMapping("/add/addForm")
 	public String addForm() {
 		log.info("addForm()..");
+		return "/add/clause";
+	}
+
+	@GetMapping("/addForm2")
+	public String clause() {
+		log.info("addForm()..");
 		return "/add/addForm";
 	}
-	
+
+
 	@GetMapping("/add/insert")
 	public String insert(UsersVO usersVO) {
 		log.info("insert()..");
 		UserAuthsVO auth = new UserAuthsVO();
 		auth.setAuth_no(10);
-		
+
 		String rawPw = usersVO.getUser_pw();
 		String encPassword = encoder.encode(rawPw);
 		usersVO.setUser_pw(encPassword);
-		
+
 		service.insertMember(usersVO);
 		return "redirect:/login";
 	}
-		
+
 
 }

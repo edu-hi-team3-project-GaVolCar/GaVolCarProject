@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>car information list</title>
+<title>랜트내역</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/prettyPhoto.css" rel="stylesheet">
@@ -56,10 +56,14 @@
 	
 </script>
 <script type="text/javascript">
-function deletePopup(){window.open("../admindeletePopup", "delete", "width=500, height=300, left=100, top=50");}
-function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, height=400, left=100, top=50");}
-
-
+	function deletePopup() {
+		window.open("../admindeletePopup", "delete",
+				"width=500, height=300, left=100, top=50");
+	}
+	function modifyPopup() {
+		window.open("../adminmodifyPopup", "modify",
+				"width=600, height=400, left=100, top=50");
+	}
 </script>
 
 
@@ -80,18 +84,20 @@ function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, 
 	line-height: 3em;
 	font-size: 1.5em;
 }
-#main{
+
+#main {
 	padding: 3em;
 	font-size: 24px;
 }
-#pagetitle{
+
+#pagetitle {
 	background: url(../기어.png);
 	background-size: cover;
 }
-.bar{
+
+.bar {
 	background-color: rgb(235, 235, 235);
 	padding-left: 20px;
-	
 }
 </style>
 </head>
@@ -118,37 +124,46 @@ function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, 
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-					<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
-				<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">예약관리</div>
+				<div id="pagetitle"
+					style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">예약관리</div>
 
 
 				<div id="main">
-					
-				
+
+
 					<table width="1200" border="5px solid black"
 						style="margin: 0 auto; text-align: center; background-color: rgba(255, 255, 255, 0.603); opacity: 0.8;">
 						<tr style="background-color: rgba(155, 155, 155, 0.603);">
@@ -185,9 +200,10 @@ function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, 
 						</c:forEach>
 
 					</table>
-					<form style="text-align: right; margin: 0 130px;" action="/admin/rentsearch" method="get">
-						<input type="text" name="user_id">
-						<input type="submit" value="유저 검색">
+					<form style="text-align: right; margin: 0 130px;"
+						action="/admin/rentsearch" method="get">
+						<input type="text" name="user_id"> <input type="submit"
+							value="유저 검색">
 					</form>
 
 

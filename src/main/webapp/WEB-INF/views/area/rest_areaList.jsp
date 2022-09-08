@@ -28,62 +28,58 @@
 
 
 
-<title>area list</title>
+<title>지역정보 리스트</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	
-function list(result) {
-    var htmls="";
-    
-    $("#list-table").html("");
-    
-    $("<tr>" , {
-       html : "<td>" + "어디로 가볼까요?" + "</td>"
-    }).appendTo("#list-table") // 이것을 테이블에 붙임
-    
-    	
-    if(result.length < 1){
-       htmls.push("등록된 장소가 없습니다.");
-    }else{         
-       
-       $(result).each(function() {
-          htmls += '<tr>';
-          
-          htmls += '<td>' + '<a href="/areacontent_view_user?area_name=' + this.area_name + '" style="text-decoration: none; color: black; text-align: center;"><div class="row" style="margin:  0 ;"><img src="\\areaimage\\'+this.area_img+'" width="250em" height="200em" >' + this.area_name + " | "  + this.area_loc + '</a></div></td>'
-        
-          htmls += '</tr>';   
-          
-       });
-       
-  
-    }
-    
-    $("#list-table").append(htmls);      
-    
-}
- 
+	function list(result) {
+		var htmls = "";
 
+		$("#list-table").html("");
 
+		$("<tr>", {
+			html : "<td>" + "어디로 가볼까요?" + "</td>"
+		}).appendTo("#list-table") // 이것을 테이블에 붙임
 
-$(document).ready(function() {
-	$.ajax({
-		type:"GET",
-		url:"/areas/areaList",
-		success:function(result){
-			console.log(result);
-			
-			list(result);
+		if (result.length < 1) {
+			htmls.push("등록된 장소가 없습니다.");
+		} else {
+
+			$(result)
+					.each(
+							function() {
+								htmls += '<tr>';
+
+								htmls += '<td>'
+										+ '<a href="/areacontent_view_user?area_name='
+										+ this.area_name
+										+ '" style="text-decoration: none; color: black; text-align: center;"><div class="row" style="margin:  0 ;"><img src="\\areaimage\\'+this.area_img+'" width="250em" height="200em" >'
+										+ this.area_name + " | "
+										+ this.area_loc + '</a></div></td>'
+
+								htmls += '</tr>';
+
+							});
+
 		}
-		
-		
-		
+
+		$("#list-table").append(htmls);
+
+	}
+
+	$(document).ready(function() {
+		$.ajax({
+			type : "GET",
+			url : "/areas/areaList",
+			success : function(result) {
+				console.log(result);
+
+				list(result);
+			}
+
+		});
+
 	});
-	
-	
-});	
-
-
 </script>
 
 <style type="text/css">

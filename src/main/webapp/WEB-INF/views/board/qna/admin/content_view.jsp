@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +19,14 @@
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
@@ -48,21 +53,20 @@
 	line-height: 30px;
 	font-size: 15px;
 }
-.bar{
+
+.bar {
 	background-color: rgb(235, 235, 235);
 	padding-left: 20px;
-	
-}
-.cont{
-	padding-left: 20px;
-	
 }
 
+.cont {
+	padding-left: 20px;
+}
 </style>
 </head>
 <body>
 
-<div class="container col-12" id="headbar" style="background: gray;">
+	<div class="container col-12" id="headbar" style="background: gray;">
 		<div class="row">
 			<div class="col-3">
 				<a id="headlogo" href="/adminmain"><img src="../투명로고.png"
@@ -83,81 +87,95 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
 
-	<tr>
-		<h1 style="text-align: center; margin: 60px; auto">관리자 답변란</h1>
-	</tr>
-	<table style="width: 1000px; height: 800px; margin: 30px auto;" cellpadding="0" cellspacing="0" border="1">
-		<form action="/qna/adminAnswer" method="post">
-			<input type="hidden" name="b_no" value="${qnaAdminContent.b_no}">
-			<input type="hidden" name="user_id"
-				value="${qnaAdminContent.user_id}"> <input type="hidden"
-				name="b_code" value="${qnaAdminContent.b_code}"> <input
-				type="hidden" name="bid" value="${qnaAdminContent.b_no}">
-			<tr>
-				<td class="bar">No.</td>
-				<td class="cont">${qnaAdminContent.b_no}</td>
-			</tr>
-			<tr>
-				<td class="bar">조회수</td>
-				<td class="cont">${qnaAdminContent.b_hit}</td>
-			</tr>
-			<tr>
-				<td class="bar">등록일</td>
-				<td class="cont">${qnaAdminContent.b_date}</td>
-			</tr>
-			<tr>
-				<td class="bar">작성자</td>
-				<td class="cont">${qnaAdminContent.member_id}xx</td>
-			</tr>
-			<tr>
-				<td class="bar">제목</td>
-				<td class="cont"><p  style="width: 90%; height: 90%; font-size: 30px;" type="text" name="b_title"
-					>${qnaAdminContent.b_title}</p></td>
-			</tr>
-			<tr>
-				<td class="bar">내용</td>
-				<td class="cont"><p style="width: 95%; height: 95%; font-size: 30px;" rows="10" name="b_contents">${qnaAdminContent.b_contents}</p></td>
-			</tr>
-			<tr>
-				<td class="bar">답변</td>
-				<td class="cont"><textarea style="width: 95%; height: 85%; font-size: 30px;" rows="10" name="b_answer" id="b_answer" rows="10"
-						onkeyup="calc()" onkeydown="calc()" onkeypass="calc()">${qnaAdminContent.b_answer}</textarea>
-					<br> <input type="number" id="result" value="0" readonly
-					style="boarder: none">/800</td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="답변완료">
-					&nbsp;&nbsp;<a href="/qna/adminList">목록보기</a>
-			</tr>
-		</form>
-	</table>
-				</div>
+				<tr>
+					<h1 style="text-align: center; margin: 60px;">관리자 답변란</h1>
+				</tr>
+				<table style="width: 1000px; height: 800px; margin: 30px auto;"
+					cellpadding="0" cellspacing="0" border="1">
+					<form action="/qna/adminAnswer" method="post">
+						<input type="hidden" name="b_no" value="${qnaAdminContent.b_no}">
+						<input type="hidden" name="user_id"
+							value="${qnaAdminContent.user_id}"> <input type="hidden"
+							name="b_code" value="${qnaAdminContent.b_code}"> <input
+							type="hidden" name="bid" value="${qnaAdminContent.b_no}">
+						<tr>
+							<td class="bar">No.</td>
+							<td class="cont">${qnaAdminContent.b_no}</td>
+						</tr>
+						<tr>
+							<td class="bar">조회수</td>
+							<td class="cont">${qnaAdminContent.b_hit}</td>
+						</tr>
+						<tr>
+							<td class="bar">등록일</td>
+							<td class="cont">${qnaAdminContent.b_date}</td>
+						</tr>
+						<tr>
+							<td class="bar">작성자</td>
+							<td class="cont">${qnaAdminContent.member_id}xx</td>
+						</tr>
+						<tr>
+							<td class="bar">제목</td>
+							<td class="cont"><p
+									style="width: 90%; height: 90%; font-size: 30px;" type="text"
+									name="b_title">${qnaAdminContent.b_title}</p></td>
+						</tr>
+						<tr>
+							<td class="bar">내용</td>
+							<td class="cont"><p
+									style="width: 95%; height: 95%; font-size: 30px;" rows="10"
+									name="b_contents">${qnaAdminContent.b_contents}</p></td>
+						</tr>
+						<tr>
+							<td class="bar">답변</td>
+							<td class="cont"><textarea
+									style="width: 95%; height: 85%; font-size: 30px;" rows="10"
+									name="b_answer" id="b_answer" rows="10" onkeyup="calc()"
+									onkeydown="calc()" onkeypass="calc()">${qnaAdminContent.b_answer}</textarea>
+								<br> <input type="number" id="result" value="0" readonly
+								style="boarder: none">/800</td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" value="답변완료">
+								&nbsp;&nbsp;<a href="/qna/adminList">목록보기</a>
+						</tr>
+					</form>
+				</table>
+			</div>
 		</div>
 	</div>
 	<footer id="footbar" style="background-color: black;">

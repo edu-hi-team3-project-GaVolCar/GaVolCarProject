@@ -27,17 +27,17 @@ public class MainController {
 
 		return "main";
 	}
-	
+
 	@GetMapping("admin/main")
 	public String admingate(Model model) {
 
 		log.info("main()...");
-	
+
 		return "redirect:/adminmain";
 	}
-	
-	
-	
+
+
+
 	@GetMapping("/adminmain")
 	public String adminmain(Model model) {
 
@@ -46,21 +46,21 @@ public class MainController {
 
 		return "admin/main";
 	}
-	@GetMapping("custommerService")
+	@GetMapping("/custommerService")
 	public String custommerService(Model model) {
 
 		log.info("main()...");
 		model.addAttribute("alertForMainPage", boardsService.getMainAlert());
 
-		return "boards/custommerServiceList";
+		return "/boards/custommerServiceList";
 	}
-	@GetMapping("adminCustommerService")
+	@GetMapping("/adminCustommerService")
 	public String adminCustommerService(Model model) {
 
 		log.info("main()...");
 		model.addAttribute("alertForMainPage", boardsService.getMainAlert());
 
-		return "boards/adminCustommerService";
+		return "/boards/adminCustommerService";
 	}
 
 }

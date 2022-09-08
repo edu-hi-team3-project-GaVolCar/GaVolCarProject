@@ -25,7 +25,7 @@ public class TransController {
 		model.addAttribute("company", transService.getType());
 
 
-		return "trans/translist";
+		return "/trans/translist";
 	}
 
 	//관리자 통계페이지로
@@ -34,7 +34,7 @@ public class TransController {
 		log.info("getTransList().....");
 		model.addAttribute("transList", transService.getTransList());
 
-		return "trans/admin/transEdit";
+		return "/trans/admin/transEdit";
 	}
 	//통계정보 추가
 	@PostMapping("/transWrite")
@@ -44,7 +44,7 @@ public class TransController {
 		transService.insertTrans(transVO);
 
 		model.addAttribute("transList", transService.getTransList());
-		return "trans/admin/transEdit";
+		return "/trans/admin/transEdit";
 	}
 	//통계정보 수정
 	@PostMapping("/transUpdate")
@@ -54,7 +54,7 @@ public class TransController {
 		transService.updateTrans(transVO);
 
 		model.addAttribute("transList", transService.getTransList());
-		return "trans/admin/transEdit";
+		return "/trans/admin/transEdit";
 	}
 
 	//통계정보 제거
@@ -64,7 +64,7 @@ public class TransController {
 
 		transService.deleteTrans(transVO);
 		model.addAttribute("transList", transService.getTransList());
-		return "trans/admin/transEdit";
+		return "/trans/admin/transEdit";
 
 	}
 

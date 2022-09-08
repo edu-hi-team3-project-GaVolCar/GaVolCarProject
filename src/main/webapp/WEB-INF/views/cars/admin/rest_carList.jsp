@@ -53,101 +53,95 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	
-function list(result) {
-    var htmls="";
-    
-    $("#list-table").html("");
-    
+	function list(result) {
+		var htmls = "";
 
-    
-    	
-    if(result.length < 1){
-       htmls.push("등록된 차량이 없습니다.");
-    }else{         
-    	htmls+='<div class="container">';
-    	htmls+='<div class="row">';
-    	
-       $(result).each(function() {
-    	  htmls+='<a href="/carcontent_view?car_no=' + this.car_no + '" style="border: 2px solid black; text-decoration: none; color: black;">' +'<table class="col-3">';
-    	  htmls += '<tr>';
-          htmls += '<td colspan="3"><img src="\\carsimages\\' + this.car_img + '" width="300em" height="200em"></td>'
-          htmls += '</tr>'; 
-          htmls += '<tr>';
-          htmls += '<td>' + '등록번호' +'</td>'; 
-          htmls += '<td>' + ':' +'</td>'; 
-          htmls += '<td>' + this.car_no +'</td>'; 
-          htmls += '</tr>'; 
-          htmls += '<tr>';
-          htmls += '<td>' + '차종' +'</td>'; 
-          htmls += '<td>' + ':' +'</td>'; 
-          htmls += '<td>' + this.car_type +'</td>'; 
-          htmls += '</tr>'; 
-          htmls += '<tr>';
-          htmls += '<td>' + '제조사' +'</td>'; 
-          htmls += '<td>' + ':' +'</td>'; 
-          htmls += '<td>' + this.car_company +'</td>'; 
-          htmls += '</tr>'; 
-          htmls += '<tr>';
-          htmls += '<td>' + '연료' +'</td>'; 
-          htmls += '<td>' + ':' +'</td>'; 
-          htmls += '<td>'+ this.car_fuel + '</td>';
-          htmls += '</tr>';  
-          htmls += '</table></a>';
-       });
-       htmls+='<a href="/carwrite" style="border: 2px solid black; text-decoration: none; color: black;">' +'<table class="col-3">';
- 	   htmls += '<tr>';
-       htmls += '<td colspan="3"><img src="\\차량등록.png" width="300em" height="200em"></td>'
-       htmls += '</tr>'; 
-       htmls += '<tr>';
-       htmls += '<td>' + '등록번호' +'</td>'; 
-       htmls += '<td>' +'</td>'; 
-       htmls += '<td>' +'</td>'; 
-       htmls += '</tr>'; 
-       htmls += '<tr>';
-       htmls += '<td>' + '차종' +'</td>'; 
-       htmls += '<td>' +'</td>'; 
-       htmls += '<td>' +'</td>'; 
-       htmls += '</tr>'; 
-       htmls += '<tr>';
-       htmls += '<td>' + '제조사' +'</td>'; 
-       htmls += '<td>' +'</td>'; 
-       htmls += '<td>' +'</td>'; 
-       htmls += '</tr>'; 
-       htmls += '<tr>';
-       htmls += '<td>' + '연료' +'</td>'; 
-       htmls += '<td>' +'</td>'; 
-       htmls += '<td>' + '</td>';
-       htmls += '</tr>';  
-       htmls += '</table></a>';
-             
-    }
-    
-    $("#list-table").append(htmls);      
-    
-}
- 
+		$("#list-table").html("");
 
+		if (result.length < 1) {
+			htmls.push("등록된 차량이 없습니다.");
+		} else {
+			htmls += '<div class="container">';
+			htmls += '<div class="row">';
 
+			$(result)
+					.each(
+							function() {
+								htmls += '<a href="/carcontent_view?car_no='
+										+ this.car_no
+										+ '" style="border: 2px solid black; text-decoration: none; color: black;">'
+										+ '<table class="col-3">';
+								htmls += '<tr>';
+								htmls += '<td colspan="3"><img src="\\carsimages\\' + this.car_img + '" width="300em" height="200em"></td>'
+								htmls += '</tr>';
+								htmls += '<tr>';
+								htmls += '<td>' + '등록번호' + '</td>';
+								htmls += '<td>' + ':' + '</td>';
+								htmls += '<td>' + this.car_no + '</td>';
+								htmls += '</tr>';
+								htmls += '<tr>';
+								htmls += '<td>' + '차종' + '</td>';
+								htmls += '<td>' + ':' + '</td>';
+								htmls += '<td>' + this.car_type + '</td>';
+								htmls += '</tr>';
+								htmls += '<tr>';
+								htmls += '<td>' + '제조사' + '</td>';
+								htmls += '<td>' + ':' + '</td>';
+								htmls += '<td>' + this.car_company + '</td>';
+								htmls += '</tr>';
+								htmls += '<tr>';
+								htmls += '<td>' + '연료' + '</td>';
+								htmls += '<td>' + ':' + '</td>';
+								htmls += '<td>' + this.car_fuel + '</td>';
+								htmls += '</tr>';
+								htmls += '</table></a>';
+							});
+			htmls += '<a href="/carwrite" style="border: 2px solid black; text-decoration: none; color: black;">'
+					+ '<table class="col-3">';
+			htmls += '<tr>';
+			htmls += '<td colspan="3"><img src="\\차량등록.png" width="300em" height="200em"></td>'
+			htmls += '</tr>';
+			htmls += '<tr>';
+			htmls += '<td>' + '등록번호' + '</td>';
+			htmls += '<td>' + '</td>';
+			htmls += '<td>' + '</td>';
+			htmls += '</tr>';
+			htmls += '<tr>';
+			htmls += '<td>' + '차종' + '</td>';
+			htmls += '<td>' + '</td>';
+			htmls += '<td>' + '</td>';
+			htmls += '</tr>';
+			htmls += '<tr>';
+			htmls += '<td>' + '제조사' + '</td>';
+			htmls += '<td>' + '</td>';
+			htmls += '<td>' + '</td>';
+			htmls += '</tr>';
+			htmls += '<tr>';
+			htmls += '<td>' + '연료' + '</td>';
+			htmls += '<td>' + '</td>';
+			htmls += '<td>' + '</td>';
+			htmls += '</tr>';
+			htmls += '</table></a>';
 
-$(document).ready(function() {
-	$.ajax({
-		type:"GET",
-		url:"/cars/carList",
-		success:function(result){
-			console.log(result);
-			
-			list(result);
 		}
-		
-		
-		
+
+		$("#list-table").append(htmls);
+
+	}
+
+	$(document).ready(function() {
+		$.ajax({
+			type : "GET",
+			url : "/cars/carList",
+			success : function(result) {
+				console.log(result);
+
+				list(result);
+			}
+
+		});
+
 	});
-	
-	
-});	
-
-
 </script>
 
 <style type="text/css">
@@ -167,7 +161,8 @@ $(document).ready(function() {
 	line-height: 3em;
 	font-size: 1.5em;
 }
-#pagetitle{
+
+#pagetitle {
 	background: url(../기어.png);
 	background-size: cover;
 }
@@ -198,32 +193,41 @@ $(document).ready(function() {
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-					<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
-			<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">차량관리</div>
+				<div id="pagetitle"
+					style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">차량관리</div>
 
 				<div id="list-table" class="col-10" border="1"
 					style="font-size: 2em; margin: 5em; text-align: center;"></div>

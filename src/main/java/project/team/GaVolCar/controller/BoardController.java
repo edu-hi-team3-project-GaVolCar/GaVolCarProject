@@ -24,9 +24,9 @@ public class BoardController {
 	@Autowired
 	private EventService eventService;
 
-//================================================Q&A게시판============================================================
+	//================================================Q&A게시판============================================================
 
-//---------------------------------------------------고객-------------------------------------------------------------
+	//---------------------------------------------------고객-------------------------------------------------------------
 
 	// Q&A구분 고객 리스트
 	@GetMapping("/qna/userList")
@@ -110,7 +110,7 @@ public class BoardController {
 		return "redirect:/qna/userList";// 유져가 삭제할 경우 다시 list 치고 들어오도록redirect해준다.
 	}
 
-//---------------------------------------------------관리자-------------------------------------------------------------
+	//---------------------------------------------------관리자-------------------------------------------------------------
 	// Q&A구분 관리자 리스트
 	@GetMapping("/qna/adminList")
 	public String qnaAdminList(Criteria cri, Model model) {
@@ -161,9 +161,9 @@ public class BoardController {
 		return "redirect:/qna/adminList";// 관리자가 유져글을 숨길 경우 다시 list 치고 들어오도록redirect해준다.
 	}
 
-//================================================후기 게시판============================================================
+	//================================================후기 게시판============================================================
 
-//---------------------------------------------------고객-------------------------------------------------------------
+	//---------------------------------------------------고객-------------------------------------------------------------
 	// REVIEW구분 고객 리스트
 	@GetMapping("/review/userList")
 	public String reviewUserList(Criteria cri, Model model) {
@@ -200,20 +200,20 @@ public class BoardController {
 		}
 		else {
 			model.addAttribute("cars", service.userCheck(user_id));
-		return "board/review/user/chooseCar";// write_view.jsp로 이동
+			return "board/review/user/chooseCar";// write_view.jsp로 이동
 		}
 	}
-	
+
 	@GetMapping("/review/userWriteView")
 	public String reviewUserWriteView(BoardRentsCarsVO brc, Model model) {
 		log.info("reviewUserWriteView()..");
-		
-			model.addAttribute("cars", brc);
+
+		model.addAttribute("cars", brc);
 		return "board/review/user/write_view";// write_view.jsp로 이동
-		
+
 	}
-	
-	
+
+
 
 	// 글 쓰기
 	@PostMapping("/review/userWrite")
@@ -224,18 +224,18 @@ public class BoardController {
 			log.info("reviewUserTitle()..");
 			return "redirect:/review/userList";
 		} else {
-			
+
 			if(eventService.getCouponInfo(boardVO.getUser_id()).size()==0) {
-				
+
 				service.reviewRegister(boardVO);
 				log.info("reviewRegister().....");
-				
+
 				CeventsVO cevent = new CeventsVO();
 				cevent.setMember_id(boardVO.getMember_id());
 				cevent.setB_no(eventService.forB_no().getB_no());
 				eventService.givecoupon(cevent);
 				eventService.insertCouponInfo(cevent);
-				
+
 				return "redirect:/cevent_view_user?user_id="+boardVO.getUser_id();
 			}
 			else {
@@ -262,7 +262,7 @@ public class BoardController {
 		}
 	}
 
-//--------------------------------------------------관리자-------------------------------------------------------------	
+	//--------------------------------------------------관리자-------------------------------------------------------------	
 	// REVIEW구분 관리자 리스트
 	@GetMapping("/review/adminList")
 	public String reviewAdminList(Criteria cri, Model model) {
@@ -301,9 +301,9 @@ public class BoardController {
 		return "redirect:adminList";// 관리자가 유져글을 숨길 경우 다시 list 치고 들어오도록redirect해준다.
 	}
 
-//==============================================공지사항 게시판============================================================
+	//==============================================공지사항 게시판============================================================
 
-//---------------------------------------------------고객-------------------------------------------------------------
+	//---------------------------------------------------고객-------------------------------------------------------------
 	// 고객 리스트
 	@GetMapping("/notice/userList")
 	public String noticeUserList(Criteria cri, Model model) {
@@ -331,7 +331,7 @@ public class BoardController {
 		return "board/notice/user/content_view";// content_view.jsp로 이동
 	}
 
-//--------------------------------------------------관리자-------------------------------------------------------------
+	//--------------------------------------------------관리자-------------------------------------------------------------
 
 	// 관리자 리스트
 	@GetMapping("notice/adminList")

@@ -77,7 +77,7 @@
 
 
 
-<title>area contents</title>
+<title>지역정보</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -151,7 +151,7 @@
 			</sec:authorize>
 		</div>
 	</div>
-	
+
 
 
 
@@ -163,7 +163,9 @@
 
 
 	<div id="main" class="col-12">
-		<div id="maincontent" class="col-4"><div style="padding: 300px 0;">${name.area_contents}</div></div>
+		<div id="maincontent" class="col-4">
+			<div style="padding: 300px 0;">${name.area_contents}</div>
+		</div>
 
 	</div>
 	<div style="padding: 30px 0;">
@@ -187,52 +189,6 @@
 
 	</div>
 
-
-
-
-
-
-
-
-
-
-	<!--  
-  <table width="700" cellpadding="0" cellspacing="0" border="1">
-     
-  
-         <tr>
-            <td> 명소이름 </td>
-            <td id="name">${name.area_name} </td>
-         </tr>
-         <tr>
-            <td> 명소주소 </td>
-            <td  id="loc">${name.area_loc} </td>
-         </tr>
-         <tr>
-            <td> 이용시간 </td>
-            <td id="time">${name.area_time} </td>
-         </tr>
-           <tr>
-            <td> 내용 </td>
-            <td id="contents">${name.area_contents}</td>
-         </tr>
-           <tr>
-            <td> 이미지</td>
-            <td><img src="${name.area_img}"></td>
-         </tr>
-           <tr>
-            <td> 전화번호 </td>
-            <td id="tel">${name.area_tel}</td>
-         </tr>
-         <tr >
-         
-            <td colspan="2"> 
-            &nbsp;&nbsp; <a href="arealist_user">목록보기</a> 
-           </td>
-         </tr>
-      </form>
-   </table>
--->
 
 	<footer id="footbar" style="background-color: black;">
 

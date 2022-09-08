@@ -66,7 +66,8 @@
 	line-height: 3em;
 	font-size: 1.5em;
 }
-#pagetitle{
+
+#pagetitle {
 	background: url(../기어.png);
 	background-size: cover;
 }
@@ -97,40 +98,50 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;"
+					border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list"
+							style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+						<td><a href="../admin/carlist"
+							style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+						<td><a href="../admin/rentscheck"
+							style="text-decoration: none; color: black;">예약 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+						<td><a href="../admin/transEdit"
+							style="text-decoration: none; color: black;">통계 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+						<td><a href="../admin/arealist"
+							style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService"
+							style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList"
+							style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
-			<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">통계 관리</div>
-				
+				<div id="pagetitle"
+					style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">통계
+					관리</div>
+
 				<div id="pieChart_div"></div>
 				<div id="chart_div"></div>
 
 
 				<table border="1" class="col-10"
-					style="font-size: 2em; margin: 5em; border:4px solid gray;">
-					<tr style="background-color:  rgba(155, 155, 155, 0.603);">
+					style="font-size: 2em; margin: 5em; border: 4px solid gray;">
+					<tr style="background-color: rgba(155, 155, 155, 0.603);">
 						<td width="50">번호</td>
 						<td>이익</td>
 						<td>차종</td>
@@ -139,21 +150,13 @@
 						<td>데이터 삭제</td>
 					</tr>
 
-					<!-- 		for (DeptVO dept : deptMapper.getDeptEmpList()) {
-			
-			log.info(dept.getLoc() + dept.getDeptno());
-			
-			for (EmpVO vo : dept.getEmpList()) {
-				System.out.println(vo);
-			}
-		} -->
-
 
 					<c:forEach var="list" items="${transList}">
 						<form id="updateForm" action="/transUpdate" method="post">
 							<input type="hidden" name="trans_no" value="${list.trans_no}">
 							<tr>
-								<td style="background-color: rgb(235, 235, 235); padding-left: 20px;">${list.trans_no}</td>
+								<td
+									style="background-color: rgb(235, 235, 235); padding-left: 20px;">${list.trans_no}</td>
 								<td><input name="trans_sales" type="number"
 									value="${list.trans_sales}"></td>
 
@@ -185,9 +188,7 @@
 
 
 
-				<div>
-					<a href="/trans" style="font-size: 30px;">통계 페이지로 가기</a>
-				</div>
+
 
 				<table id="list-table" border="1">
 
