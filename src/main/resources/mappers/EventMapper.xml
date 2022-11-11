@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.team.GaVolCar.mapper.EventMapper">
+	
+	<resultMap id="rentmap" type="RentsVO2">
+		<id property="rez_no" column="rez_no"/>
+		<result property="rent_start_date" column="rent_start_date"/>
+		<result property="rent_end_date" column="rent_end_date"/>
+		<result property="final_cost" column="final_cost"/>
+		<result property="hipass" column="hipass"/>
+		<result property="baby_car_seat" column="baby_car_seat"/>
+		<result property="user_id" column="user_id"/>
+		<result property="car_no" column="car_no"/>
+		
+	</resultMap>
+	
+	
+	<resultMap id="peventrentmap" type="PeventsRentsVO">
+		<result property="point_no" column="point_no"/>
+		<result property="points" column="points"/>
+		<result property="point_date" column="point_date"/>
+		<result property="rez_no" column="rez_no"/>
+		<collection property="rentsList" resultMap="rentmap"></collection>
+		
+	</resultMap>
+	
+	<select id="getPeventsRentsList" resultMap="peventrentmap">
+		<![CDATA[
+			select * from rents,pevents where rents.rez_no = pevents.rez_no
+		]]>
+	</select>
+	
+	<select id="getPointData" resultMap="peventrentmap">
+		<![CDATA[
+			select * from pevents,rents where pevents.rez_no = rents.rez_no and  rents.user_id = #{user_id}
+		]]>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<select id="getCeventsList" resultType="project.team.GaVolCar.vo.CeventsVO">
+		<![CDATA[
+			select * from cevents order by event_no
+		]]>
+	</select>
+	
+	
+	
+	<resultMap id="boardmap" type="BoardsVO">
+		<id property="b_no" column="b_no"/>
+		<result property="b_title" column="b_title"/>
+		<result property="b_contents" column="b_contents"/>
+		<result property="b_date" column="b_date"/>
+		<result property="b_answer" column="b_answer"/>
+		<result property="member_id" column="member_id"/>
+		<result property="car_type" column="car_type"/>
+		<result property="b_hit" column="b_hit"/>
+		<result property="b_img" column="b_img"/>
+		<result property="user_id" column="user_id"/>
+		<result property="b_code" column="b_code"/>
+	</resultMap>
+	
+	
+	<resultMap id="ceventboardmap" type="CeventsBoardsVO">
+		<result property="event_no" column="event_no"/>
+		<result property="coupon_name" column="coupon_name"/>
+		<result property="coupon_contents" column="coupon_contents"/>
+		<result property="member_id" column="member_id"/>
+		<result property="b_no" column="b_no"/>
+		<collection property="boardsList" resultMap="boardmap"></collection>
+		
+	</resultMap>
+	
+	<select id="getCeventBoardList" resultMap="ceventboardmap">
+		<![CDATA[
+			select * from cevents, boards where cevents.b_no = boards.b_no
+		]]>
+	</select>
+	<select id="getMemberCeventBoardList" resultMap="ceventboardmap">
+		<![CDATA[
+			select * from cevents, boards where cevents.b_no = boards.b_no and boards.user_id = #{user_id}
+		]]>
+	</select>
+	<select id="forB_no" resultType="project.team.GaVolCar.vo.BoardsVO">
+		<![CDATA[
+			SELECT ROWNUM AS RNUM, A.* FROM (SELECT * FROM boards order by b_no desc) A WHERE ROWNUM = 1
+		]]>
+	</select>
+	
+	<insert id="givecoupon">
+		<![CDATA[
+			insert into cevents(event_no,coupon_name,coupon_contents,member_id,b_no) values (coupon_seq.nextval,'후기이벤트 쿠폰','10% 할인',#{member_id},#{b_no})
+		
+		]]>
+	</insert>
+	
+	<insert id="insertCouponInfo">
+		<![CDATA[
+			insert into coupons(coupon_no,event_no,user_id) values (coupons_seq.nextval,coupon_seq.currval,#{member_id})
+		
+		]]>
+	</insert>
+	
+	<select id="getCoupon" resultType="project.team.GaVolCar.vo.BoardsVO">
+		<![CDATA[
+			SELECT ROWNUM AS RNUM, A.* FROM (SELECT * FROM boards order by b_no desc) A WHERE ROWNUM = 1
+		]]>
+	</select>
+	
+	
+	
+</mapper>
